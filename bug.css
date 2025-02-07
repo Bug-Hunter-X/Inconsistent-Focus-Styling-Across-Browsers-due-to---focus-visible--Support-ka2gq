@@ -1,0 +1,9 @@
+The CSS rule `:focus-visible` pseudo-class is not supported in older browsers (like Internet Explorer) leading to unexpected behavior when elements gain focus.
+
+```css
+a:focus-visible {
+  outline: 2px solid blue;
+}
+```
+
+This code intends to add an outline to links only when the focus is programmatically triggered (e.g. using JavaScript).  Older browsers lack support for `:focus-visible`, which causes the outline to appear on all focus events, including those triggered by mouse clicks, leading to a cluttered visual experience.
