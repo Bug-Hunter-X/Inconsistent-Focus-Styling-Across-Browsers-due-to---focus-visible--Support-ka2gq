@@ -1,0 +1,24 @@
+The solution involves using JavaScript to detect `:focus-visible` support and applying styles accordingly.  If the browser supports `:focus-visible`, use the CSS rule directly. If not, use a fallback style, ensuring the focus is visually indicated, but without the unnecessary clutter from the outline in older browsers.
+
+```javascript
+if ('focus-visible' in document.createElement('a')) {
+  // Browser supports :focus-visible
+  // No additional JavaScript needed
+} else {
+  // Browser does not support :focus-visible
+  // Add a fallback style using JavaScript
+  document.addEventListener('focusin', function(event) {
+    event.target.classList.add('focused');
+  });
+  document.addEventListener('focusout', function(event) {
+    event.target.classList.remove('focused');
+  });
+}
+```
+
+```css
+.focused {
+  outline: 2px solid blue;
+}
+```
+This ensures a consistent, accessible user experience across all browsers.
